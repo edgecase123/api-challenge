@@ -8,5 +8,12 @@ namespace App\Services;
  */
 class TheOneApiService
 {
+    private string $apiKey;
+
+    public function __construct()
+    {
+        $this->apiKey = \config('theone.base_api_url');
+    }
+
 
 }
