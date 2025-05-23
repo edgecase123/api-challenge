@@ -1,4 +1,4 @@
 # api-challenge
 ### Laravel Backend
 
-Beckend API Project for FullStackSoftwareEngineerHomework.
+Beck end API Project for FullStackSoftwareEngineerHomework.
