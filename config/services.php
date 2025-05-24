@@ -34,5 +34,8 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    'theone' => [
+        'base_url' => env('API_LOR_BASE_URL', 'https://the-one-api.dev/v2'),
+        'api_key' => env('API_LOR_KEY', 'DlBiaP6LzeoDIETSYePJ'),
+    ],
 ];
