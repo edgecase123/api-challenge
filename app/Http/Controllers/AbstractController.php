@@ -32,16 +32,15 @@ abstract class AbstractController extends Controller
                 $input = 'input: ' . json_encode($params, JSON_THROW_ON_ERROR);
                 $errors = json_encode($validator->errors(), JSON_THROW_ON_ERROR);
                 Log::info("Request failed validation. Data: $input Errors: $errors", [__FUNCTION__]);
+                abort(400, __('Client error'));
             } catch (JsonException $e) {
                 Log::error('Error attempting to validate input', [
                     'params' => $params,
                     'errorMsg' => $e->getMessage(),
                 ]);
 
-                return [];
+                abort(500, __('An error occurred processing the request'));
             }
-
-            abort(400, __('Client error'));
         }
 
         return $params;
