@@ -40,6 +40,9 @@ jobs:
       - name: Copy Environment File
         run: cp .env.example .env
 
+      - name: Add TheOneApi Key to .env
+        run: echo "THE_ONE_API_KEY=${{ secrets.THE_ONE_API_KEY }}" >> .env
+
       - name: Generate Application Key
         run: php artisan key:generate
 
