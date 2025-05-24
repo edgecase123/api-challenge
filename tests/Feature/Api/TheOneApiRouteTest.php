@@ -7,7 +7,7 @@ use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-class TheOneTest extends TestCase
+class TheOneApiRouteTest extends TestCase
 {
     const LIMIT_100 = 'limit=100';
     const URL = '/api/v1/character';
