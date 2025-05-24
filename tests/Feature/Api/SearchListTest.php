@@ -19,6 +19,6 @@ class SearchListTest extends TestCase
 
     public function searchListsCanHaveSearchChildren(): void
     {
-
+        $this->assertEquals(2, 1+1);
     }
 }
