@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('search_list_id');
             $table->string('term', '32');
+            $table->string('field', '32');
             $table->integer('limit')->default(100);
             $table->timestamps();
 
