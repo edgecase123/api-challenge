@@ -20,13 +20,22 @@ class TheOneApiService
         $this->apiUrl = \config('services.theone.base_url');
     }
 
-    public function getCharacters(int $limit = 100, string $name = null): array|null
+    public function getCharacters(
+        int    $limit = 100,
+        string $term = null,
+        string $field = null
+    ): array|null
     {
         try {
             $url = "{$this->apiUrl}/character?limit=$limit";
 
-            if ($name) {
-                $url .= "&name=/$name/i"; // Regex search
+            if ($term) {
+
+                if (!$field) {
+                    throw new \RuntimeException('field parameter is required with term is provided');
+                }
+
+                $url .= "&$field=/$term/i"; // Regex search
             }
 
             $response = Http::withHeaders([
