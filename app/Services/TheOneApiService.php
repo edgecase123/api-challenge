@@ -27,7 +27,7 @@ class TheOneApiService
     ): array|null
     {
         try {
-            $url = "{$this->apiUrl}/character?limit=$limit";
+            $url = "{$this->apiUrl}/character?sort=name:asc&limit=$limit";
 
             if ($term) {
 
