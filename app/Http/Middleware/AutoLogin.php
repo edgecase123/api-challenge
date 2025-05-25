@@ -26,8 +26,6 @@ class AutoLogin
             return \response()->json(['error' => 'User not found. Did you run migrations?']);
         }
 
-        Log::log('debug', __FUNCTION__ . ': ' . 'Finished auto logging in user', [Auth::user()]);
-
         return $next($request);
     }
 }
