@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AutoLogin;
 use App\Http\Middleware\HandleAppearance;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -19,6 +20,12 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             HandleAppearance::class,
             AddLinkHeadersForPreloadedAssets::class,
+        ]);
+
+        $middleware->append(AutoLogin::class);
+
+        $middleware->alias([
+            'auto-login' => AutoLogin::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

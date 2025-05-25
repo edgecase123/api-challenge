@@ -12,4 +12,4 @@ Route::get('/user', function (Request $request) {
 Route::prefix('v1')->group(static function () {
     Route::get('/character', [TheOneController::class, 'index']);
     Route::get('/sanctum/csrf-cookie', action: array(CsrfCookieController::class, 'show'));
-});
+})->middleware('auto-login');

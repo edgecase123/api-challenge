@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Api;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Log;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Test;
@@ -9,8 +11,17 @@ use Tests\TestCase;
 
 class TheOneApiRouteTest extends TestCase
 {
+    use RefreshDatabase;
+
     const LIMIT_100 = 'limit=100';
     const URL = '/api/v1/character';
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed();
+    }
 
     public static function dataItGetsCharacters(): array
     {
