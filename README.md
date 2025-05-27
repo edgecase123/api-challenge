@@ -44,6 +44,11 @@ php artisan serve --host=api.test --port=8000
 
 Now access the API at [http://api.test](http://api.test). This is the Laravel backend so you should only see a confirmation page.
 
+**9. Update `.env` with API keys:**
+```
+API_LOR_BASE_URL=https://the-one-api.dev/v2
+API_LOR_KEY=YOUR_API_KEY_HERE
+```
 ---
 
 ### Optional: Use the local SQLite file database for testing
