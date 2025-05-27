@@ -13,7 +13,7 @@ class TheOneController extends AbstractController
     {
         $params = $this->validateInput([
             'field' => 'regex:/^[a-z]+$/|min:3|required_with:term|in:name,race,birth,death',
-            'term' => ' regex:/^[a-zA-Z0-9\s]+$/|min:3|required_with:field',
+            'term' => 'regex:/^[a-zA-Z0-9\s]+$/|min:3|required_with:field',
             'limit' => 'sometimes|int|min:10|max:100',
         ]);
 
