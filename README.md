@@ -39,7 +39,7 @@ php artisan migrate --seed
 
 **8. Start the local development server:**
 ```sh
-php artisan serve --host=api.test --port=8000
+php artisan serve --host=api.test
 ```
 
 Now access the API at [http://api.test](http://api.test). This is the Laravel backend so you should only see a confirmation page.
