@@ -42,6 +42,8 @@ php artisan migrate --seed
 php artisan serve --host=api.test
 ```
 
+**Note** there is a file `/doc/api-back.conf` that configures nginx if that is more convenient.
+
 Now access the API at [http://api.test](http://api.test). This is the Laravel backend so you should only see a confirmation page.
 
 **9. Update `.env` with API keys:**
