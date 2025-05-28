@@ -98,9 +98,11 @@ class SearchController extends AbstractController
             return $this->jsonError('Search list unknown');
         }
 
-        return response()->json($searchList->searches()
+        $searches = $searchList->searches()
             ->orderBy('updated_at', 'desc')
-            ->get()->makeVisible('updated_at'));
+            ->get()->makeVisible('updated_at');
+
+        return response()->json($searches);
     }
 
     public function removeSearch(int $searchListId, int $searchId): JsonResponse

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Search;
 use App\Models\SearchList;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class SearchListSeeder extends Seeder
@@ -22,21 +23,25 @@ class SearchListSeeder extends Seeder
         $badBoys->searches()->save(Search::make([
             'term' => 'Sauron',
             'field' => 'name',
+            'updated_at' => Carbon::now()->subDay(),
         ]));
 
         $badBoys->searches()->save(Search::make([
             'term' => 'Grima',
             'field' => 'name',
+            'updated_at' => Carbon::now()->subHours(12),
         ]));
 
         $badBoys->searches()->save(Search::make([
             'term' => 'Saruman',
             'field' => 'name',
+            'updated_at' => Carbon::now()->subMinutes(45),
         ]));
 
         $badBoys->searches()->save(Search::make([
             'term' => 'Gollum',
             'field' => 'name',
+            'updated_at' => Carbon::now()->subMinutes(15),
         ]));
 
 
