@@ -7,7 +7,6 @@ use App\Models\SearchList;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Log;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
@@ -47,9 +46,6 @@ class SearchListTest extends TestCase
     public function itRetrievesSearchLists(): void
     {
         $response = $this->getJson(self::SEARCHLIST_URL);
-
-        Log::log('debug', __FUNCTION__ . ': ' . 'Results from searchlist', [$response->getContent()]);
-
         $response->assertOk();
     }
 
@@ -72,7 +68,6 @@ class SearchListTest extends TestCase
 
         $response->assertOk();
         $result = $response->json();
-        Log::log('debug', __FUNCTION__ . ': ' . 'Result', [$result]);
     }
 
     #[Test]
@@ -111,8 +106,6 @@ class SearchListTest extends TestCase
             'name' => 'Small People',
             'user_id' => $testUser->id,
         ]);
-
-        Log::log('debug', __FUNCTION__ . ': ' . 'Response from create search', [$response->getContent()]);
     }
 
     #[Test]

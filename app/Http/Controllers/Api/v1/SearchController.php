@@ -7,7 +7,6 @@ use App\Models\Search;
 use App\Models\SearchList;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class SearchController extends AbstractController
 {
@@ -59,7 +58,6 @@ class SearchController extends AbstractController
 
     public function createSearch(int $searchListId): JsonResponse
     {
-        Log::log('debug', __FUNCTION__ . ': ' . 'Params received', [$this->request->all()]);
         $params = $this->validateInput([
             'term' => 'required|alpha|min:3',
             'field' => 'required|alpha|min:3'
@@ -77,8 +75,6 @@ class SearchController extends AbstractController
             'term' => $params['term'],
             'field' => $params['field'],
         ])->first();
-
-        Log::log('debug', __FUNCTION__ . ': ' . 'Existing search found', [$existingSearch]);
 
         if ($existingSearch !== null) {
             return $this->jsonMessage('Duplicate attempted', 409);
@@ -116,7 +112,6 @@ class SearchController extends AbstractController
             return $this->jsonError('Invalid search list. Not found');
         }
 
-        Log::log('debug', __FUNCTION__ . ': ' . 'Search List found', [$searchList]);
         $search = $searchList->searches()->find($searchId);
 
         if (!$search instanceof Search) {

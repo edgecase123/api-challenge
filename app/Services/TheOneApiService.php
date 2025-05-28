@@ -55,8 +55,6 @@ class TheOneApiService
                     'count' => $charCount,
                     'data' => $characters,
                 ];
-            } else {
-                Log::log('debug', __FUNCTION__ . ': ' . 'Response from LoR:', [$response->body()]);
             }
 
             return null;

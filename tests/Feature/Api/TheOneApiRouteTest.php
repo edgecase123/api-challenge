@@ -52,6 +52,7 @@ class TheOneApiRouteTest extends TestCase
      * @param int $limit
      * @param int $expectedCount
      * @param string|null $searchTerm
+     * @param string|null $searchField
      * @param bool $succeeds
      * @return void
      */
