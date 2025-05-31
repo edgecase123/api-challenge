@@ -14,7 +14,6 @@ class TheOneController extends AbstractController
 
     public function index(TheOneApiService $oneApiService): JsonResponse
     {
-        Log::log('debug', __FUNCTION__ . ': ' . 'Params: ', [$this->request->all()]);
         $params = $this->validateInput([
             'field' => 'regex:/^[a-z]+$/|min:3|required_with:term|in:name,race,birth,death',
             'term' => 'regex:/^[a-zA-Z0-9\s]+$/|min:3|required_with:field',
