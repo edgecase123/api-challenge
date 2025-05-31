@@ -25,7 +25,7 @@ class TheOneController extends AbstractController
         if (empty($params['term']) && empty($params['field'])) {
             $response = Cache::remember(self::DEFAULT_LIST_KEY, now()->addMinutes(10),
                 function () use ($oneApiService) {
-                    return $oneApiService->getCharacters($params['limit'] ?? 100);
+                    return $oneApiService->getCharacters();
                 });
         } else {
             $response = $oneApiService->getCharacters(
